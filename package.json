@@ -1,0 +1,36 @@
+{
+  "name": "cedolino-app",
+  "version": "1.0.0",
+  "description": "Riepilogo grafico della busta paga, generato interamente nel browser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "npm run test:tokenizzazione && npm run test:segnalazione && npm run test:parser && npm run test:parser:caratteri && npm run test:generico && npm run test:generico:caratteri && npm run test:layout && npm run test:layout:generico",
+    "test:tokenizzazione": "node --experimental-strip-types test/tokenizzazione.test.ts",
+    "test:parser": "node --experimental-strip-types test/parser.test.ts test/fixture.json",
+    "test:parser:caratteri": "node --experimental-strip-types test/parser.test.ts test/fixture-caratteri.json",
+    "test:generico": "node --experimental-strip-types test/generico.test.ts test/fixture.json test/fixture-generico.json",
+    "test:generico:caratteri": "node --experimental-strip-types test/generico.test.ts test/fixture-caratteri.json test/fixture-generico-caratteri.json",
+    "test:layout": "node --experimental-strip-types test/layout.test.ts test/fixture.json",
+    "test:layout:generico": "node --experimental-strip-types test/layout.test.ts test/fixture-generico-caratteri.json",
+    "test:segnalazione": "node --experimental-strip-types test/segnalazione.test.ts"
+  },
+  "dependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "typescript": "~5.9.0"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+out-tsc/
+.angular/
+
+# Il fixture di test è generato da un cedolino vero e contiene dati personali
+# (codice fiscale, IBAN, retribuzione): non va versionato.
+test/fixture*.json
