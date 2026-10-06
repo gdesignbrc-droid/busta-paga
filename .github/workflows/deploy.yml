@@ -26,10 +26,15 @@ jobs:
       - name: Compila
         run: npm run build -- --base-href="/${{ github.event.repository.name }}/"
 
+      - name: Individua cartella di build
+        run: |
+          BUILD_DIR=$(find dist -name index.html -exec dirname {} \; | head -n 1)
+          echo "DEPLOY_PATH=$BUILD_DIR" >> $GITHUB_ENV
+
       - name: Carica artefatto Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/'
+          path: ${{ env.DEPLOY_PATH }}
 
       - name: Pubblica su GitHub Pages
         uses: actions/deploy-pages@v4
